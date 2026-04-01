@@ -1,0 +1,45 @@
+---
+import { ClientRouter, fade } from "astro:transitions";
+import Nav from "../components/Nav.svelte";
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="da">
+    <head>
+        <ClientRouter />
+        <meta charset="UTF-8" />
+        <meta name="description" content="TODO" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+
+        <title>{title}</title>
+    </head>
+    <body
+        transition:animate={fade({ duration: "0.4s" })}
+        class="font-serif bg-black text-mid antialiased tracking-tight font-light"
+    >
+        <Nav client:only path={Astro.url.pathname} />
+        <slot />
+    </body><Footer />
+</html>
+
+<style is:global>
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+    }
+</style>

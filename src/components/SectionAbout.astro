@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+import Hero from "../assets/hero.jpg";
+---
+
+<section class="bg-cream w-full relative">
+    <div class="relative w-full h-svh md:h-screen overflow-hidden group">
+        <div class="relative h-full w-full overflow-hidden flex flex-col gap-8">
+            <div class="overflow-hidden p-8 pb-0 flex-1">
+                <Image
+                    src={Hero}
+                    alt="hero"
+                    class="rounded-md w-full h-full object-cover object-center"
+                />
+            </div>
+            <div class="pb-40 px-8 flex flex-col gap-8 flex-2">
+                <div
+                    class="text-brass uppercase text-sm tracking-widest flex flex-row relative"
+                >
+                    <div
+                        class="before:w-9 before:top-2.5 before:absolute before:bg-brass before:h-px"
+                    >
+                    </div>
+                    <div class="pl-12">
+                        Morfar's Lamper v/ Jan Lyhne - København
+                    </div>
+                </div>
+                <h1 class="text-5xl text-charcoal font-din! font-light">
+                    Om <span class="text-brass"> Morfar's Lamper </span>
+                </h1>
+                <p class="text-mid text-lg">
+                    Vi vækker danske designklassikere til live. Uanset om det er
+                    en PH 4/5, et tidløst Arne Jacobsen-design eller en helt
+                    tredje lampe, restaurerer vi den med dyb respekt for det
+                    oprindelige håndværk. Gå også på opdagelse i vores
+                    eksklusive kollektion af færdigrestaurerede lamper, klar til
+                    at sprede nyt lys i dit hjem.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

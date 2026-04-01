@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+    --font-serif: "DM Sans", serif;
+    --font-din: "Playfair Display", sans-serif;
+
+    --color-cream: #F5F0E8;
+    --color-warm-white: #FAF7F2;
+    --color-brass: #B8924A;
+    --color-brass-light: #D4AA6A;
+    --color-brass-dark: #8A6A2E;
+    --color-charcoal: #1C1A17;
+    --color-mid: #6B6457;
+    --color-light-border: rgba(184, 146, 74, 0.2);
+    --color-glow: rgba(184, 146, 74, 0.12);
+
+
+    --animate-nav-hover: navHover 0.25s;
+
+    --animate-slide: slide 50s linear infinite;
+    --animate-slide-reverse: slideReverse 50s linear infinite;
+
+    --container-8xl: 96rem;
+    --container-9xl: 112rem;
+}
+
+/* 3. Applying the finish */
+html {
+    /* Use the new mist color */
+    background-color: var(--color-cream);
+    color: var(--color-mid);
+    font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-serif);
+}
+
+
+
+@keyframes navHover {
+    from {
+        opacity: 0;
+        width: 100%;
+        background-color: var(--color-secondary);
+    }
+
+    to {
+        opacity: 1;
+        width: calc(100% + 1.5rem);
+        background-color: var(--color-secondary);
+    }
+}
+
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-50% - 20px))
+    }
+}
+
+@keyframes slideReverse {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0)
+    }
+}
+
+@utility pause-animation {
+    animation-play-state: paused;
+}

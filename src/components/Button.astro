@@ -1,0 +1,33 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"button"> {
+    variant?: "dark" | "light" | "oak";
+    href?: string;
+}
+
+const { variant = "dark", href, class: className, ...rest } = Astro.props;
+
+const baseStyles =
+    "hover:cursor-pointer inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-0.5";
+
+const variants = {
+    dark: "text-white bg-mid hover:bg-heavy shadow-lg shadow-mid/20",
+    light: "text-mid bg-primary hover:bg-white shadow-lg shadow-black/10",
+    oak: "text-white bg-primary hover:bg-[#8F6A45] shadow-lg shadow-primary/20",
+};
+
+const finalClass = [baseStyles, variants[variant], className].join(" ");
+---
+
+{
+    href ? (
+        <a href={href} class={finalClass} {...(rest as HTMLAttributes<"a">)}>
+            <slot />
+        </a>
+    ) : (
+        <button class={finalClass} {...rest}>
+            <slot />
+        </button>
+    )
+}
