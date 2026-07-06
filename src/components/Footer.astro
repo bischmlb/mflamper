@@ -2,90 +2,83 @@
 
 ---
 
-<footer
-    class="bg-cream text-mid py-20 px-8 border-t border-mid/5"
-    transition:persist
->
-    <div
-        class="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 text-lg"
-    >
-        <div class="flex flex-col gap-4">
-            <h3 class="text-3xl text-charcoal">Morfar's Lamper</h3>
-
-            <address class="not-italic font-light leading-relaxed">
-                2880 Bagsværd
-            </address>
-
-            <div class="font-light">
-                <p class="block font-normal">CVR:</p>
-                <p>12971737</p>
-            </div>
-        </div>
-
-        <div class="flex flex-col gap-4">
-            <h3 class="text-3xl text-charcoal">Kontaktoplysninger</h3>
-
-            <div class="font-light">
-                <p class="font-normal">Ring til os på:</p>
-                <a
-                    href="tel:+4522102324"
-                    class="hover:text-primary transition-colors duration-300"
-                >
-                    +45 40 51 80 33
-                </a>
-            </div>
-
-            <div class="font-light">
-                <p class="font-normal">Skriv til os på:</p>
-                <a
-                    href="mailto:pnentreprise@outlook.dk"
-                    class="hover:text-primary transition-colors duration-300"
-                >
-                    pnentreprise@outlook.dk
-                </a>
-            </div>
-        </div>
-
-        <div class="flex flex-col gap-10">
-            <div class="flex flex-col gap-4">
-                <h3 class="text-3xl text-charcoal">Åbningstider</h3>
-
-                <div class="font-light space-y-2 w-full max-w-sm">
-                    <div
-                        class="flex justify-between items-center border-b border-charcoal/15 pb-1"
+<footer class="bg-cream text-mid border-t border-brass/20" transition:persist>
+    <!-- Main footer content -->
+    <div class="max-w-8xl mx-auto px-8 py-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8">
+            <!-- Brand column -->
+            <div class="flex flex-col gap-6">
+                <div>
+                    <p
+                        class="text-brass uppercase text-xs tracking-widest flex items-center gap-3 mb-3"
                     >
-                        <span>Mandag til Fredag</span>
-                        <span class="tabular-nums font-medium">7 - 16</span>
-                    </div>
-                    <div
-                        class="flex justify-between items-center text-mid/60 pt-1"
-                    >
-                        <span>Lørdag, Søn & Helligdage</span>
-                        <span>Lukket</span>
-                    </div>
+                        <span class="block w-8 h-px bg-brass"></span>
+                        Siden 1980
+                    </p>
+                    <h3 class="font-light text-3xl text-charcoal">
+                        Morfar's Lamper
+                    </h3>
+                </div>
+                <p class="font-light text-mid/80 leading-relaxed text-sm">
+                    Vi vækker danske designklassikere til live — med respekt for
+                    det oprindelige håndværk.
+                </p>
+                <address
+                    class="not-italic font-light text-sm leading-relaxed text-mid/70"
+                >
+                    2880 Bagsværd
+                </address>
+                <div class="font-light text-sm text-mid/70">
+                    <span class="text-mid font-normal">CVR:</span> 12971737
                 </div>
             </div>
 
-            <!-- <div class="flex flex-col gap-4">
-                <h3 class="text-3xl font-serif text-mid">
-                    Telefontider
-                </h3>
-
-                <div class="font-light space-y-2 w-full max-w-sm">
-                    <div
-                        class="flex justify-between items-center border-b border-mid/5 pb-1"
+            <!-- Contact column -->
+            <div class="flex flex-col gap-6">
+                <div>
+                    <p
+                        class="text-brass uppercase text-xs tracking-widest flex items-center gap-3 mb-3"
                     >
-                        <span>Mandag til Fredag</span>
-                        <span class="tabular-nums font-medium">7 - 16</span>
+                        <span class="block w-8 h-px bg-brass"></span>
+                        Kontakt
+                    </p>
+                    <h3 class="font-light text-3xl text-charcoal">
+                        Kontaktoplysninger
+                    </h3>
+                </div>
+                <div class="flex flex-col gap-4 font-light text-sm">
+                    <div>
+                        <p class="text-mid/60 mb-1">Ring til os</p>
+                        <a
+                            href="tel:+4540518033"
+                            class="text-mid hover:text-brass transition-colors duration-300"
+                        >
+                            +45 40 51 80 33
+                        </a>
                     </div>
-                    <div
-                        class="flex justify-between items-center text-mid/60 pt-1"
-                    >
-                        <span>Lørdag, Søn & Helligdage</span>
-                        <span>Lukket</span>
+                    <div>
+                        <p class="text-mid/60 mb-1">Skriv til os</p>
+                        <a
+                            href="mailto:pnentreprise@outlook.dk"
+                            class="text-mid hover:text-brass transition-colors duration-300"
+                        >
+                            pnentreprise@outlook.dk
+                        </a>
                     </div>
                 </div>
-            </div> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-brass/10">
+        <div
+            class="max-w-8xl mx-auto px-8 py-5 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-mid/40 font-light"
+        >
+            <span
+                >© {new Date().getFullYear()} Morfar's Lamper. Alle rettigheder forbeholdes.</span
+            >
+            <span>v/ Jan Lyhne</span>
         </div>
     </div>
 </footer>

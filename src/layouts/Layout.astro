@@ -30,7 +30,7 @@ const { title } = Astro.props;
     </head>
     <body
         transition:animate={fade({ duration: "0.4s" })}
-        class="font-serif bg-black text-mid antialiased tracking-tight font-light"
+        class="font-serif bg-cream text-mid antialiased tracking-tight font-light"
     >
         <Nav client:only path={Astro.url.pathname} />
         <slot />

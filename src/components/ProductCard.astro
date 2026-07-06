@@ -1,0 +1,182 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import { getAssortmentId, type LampColors } from "../data";
+import type { Designer } from "../types";
+
+interface Props {
+    image: ImageMetadata;
+    title: string;
+    colors: LampColors;
+    subtitle?: string;
+    description?: string;
+    designer?: Designer;
+    variant?: "featured" | "grid";
+}
+
+const {
+    image,
+    title,
+    subtitle,
+    description,
+    designer,
+    variant = "grid",
+    colors,
+} = Astro.props;
+---
+
+{
+    variant === "featured" ? (
+        <a
+            href={"TODO"}
+            class="group relative flex flex-col md:flex-row overflow-hidden rounded-2xl bg-warm-white border border-brass/15 hover:border-brass/35 transition-all duration-500 hover:shadow-xl hover:shadow-brass/10"
+        >
+            {/* Image */}
+            <div class="relative md:w-1/2 h-100 overflow-hidden shrink-0">
+                <Image
+                    src={image}
+                    alt="product image"
+                    class="w-full h-full object-cover grayscale-20 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                />
+            </div>
+
+            {/* Content */}
+            <div class="relative flex flex-col justify-center p-8 md:p-12 gap-5 flex-1">
+                {/* Glow accent */}
+                <div class="absolute top-0 right-0 w-64 h-64 bg-brass/5 rounded-full blur-3xl pointer-events-none" />
+
+                <div class="flex flex-col gap-1">
+                    {subtitle && (
+                        <span class="text-brass text-xs font-medium uppercase tracking-[0.2em]">
+                            {subtitle}
+                        </span>
+                    )}
+                    <h2 class="font-din text-3xl md:text-4xl text-charcoal leading-tight">
+                        {title}
+                    </h2>
+                </div>
+
+                {description && (
+                    <p class="text-mid leading-relaxed text-sm md:text-base max-w-sm">
+                        {description}
+                    </p>
+                )}
+
+                {/* Meta row */}
+                <div class="flex flex-wrap gap-4 text-xs text-mid">
+                    {designer && (
+                        <span class="flex items-center gap-1.5">
+                            <svg
+                                class="w-3.5 h-3.5 text-brass/60"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                                />
+                            </svg>
+                            {designer}
+                        </span>
+                    )}
+                </div>
+
+                {/* Price + CTA */}
+                <div class="flex items-center justify-between pt-2 border-t border-brass/15 mt-auto">
+                    <span class="inline-flex items-center gap-2 text-brass text-sm font-medium group-hover:gap-3 transition-all">
+                        Se lampen
+                        <svg
+                            class="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                            />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </a>
+    ) : (
+        /* Grid card */
+        <a
+            href={"TODO"}
+            class="group relative flex flex-col overflow-hidden rounded-2xl bg-warm-white border border-brass/15 hover:border-brass/35 transition-all duration-500 hover:shadow-xl hover:shadow-brass/10 hover:-translate-y-1"
+        >
+            {/* Image */}
+            <div class="relative h-96 overflow-hidden">
+                <Image
+                    src={image}
+                    alt="product image"
+                    class="w-full h-full object-cover object-center grayscale-20 group-hover:grayscale-0 group-hover:scale-108 transition-all duration-700 ease-out"
+                />
+                <div class="absolute inset-0 bg-linear-to-t from-charcoal/40 via-transparent to-transparent" />
+            </div>
+
+            {/* Content */}
+            <div class="relative flex flex-col gap-3 p-5">
+                <div class="absolute top-0 right-0 w-48 h-48 bg-brass/5 rounded-full blur-2xl pointer-events-none" />
+
+                <h3 class="font-din text-xl text-charcoal leading-snug">
+                    {title}
+                </h3>
+
+                <div class="flex gap-2">
+                    {colors.map((color) => {
+                        const id = getAssortmentId(color);
+                        return (
+                            <div
+                                style={{ backgroundColor: color }}
+                                class="h-6 w-10 rounded-full flex items-center justify-center"
+                                class:list={[
+                                    id === 1 ? "text-charcoal" : "text-white",
+                                ]}
+                            >
+                                {id}
+                            </div>
+                        );
+                    })}
+                </div>
+
+                {description && (
+                    <p class="text-mid text-sm leading-relaxed line-clamp-2">
+                        {description}
+                    </p>
+                )}
+
+                {/* Meta */}
+                <div class="flex flex-wrap gap-3 text-xs text-mid/70 mt-1">
+                    {designer && <span>{designer}</span>}
+                </div>
+
+                {/* Bottom CTA */}
+                <div class="pt-3 border-t border-brass/15 mt-auto">
+                    <span class="inline-flex items-center gap-1.5 text-brass/70 group-hover:text-brass text-xs font-medium uppercase tracking-widest transition-colors group-hover:gap-2.5">
+                        Se mere
+                        <svg
+                            class="w-3.5 h-3.5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                            />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </a>
+    )
+}

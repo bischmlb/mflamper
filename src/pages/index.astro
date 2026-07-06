@@ -1,12 +1,121 @@
 ---
-import LandingHero from "../components/LandingHero.astro";
-import SectionAbout from "../components/SectionAbout.astro";
 import Layout from "../layouts/Layout.astro";
+import ProductCard from "../components/ProductCard.astro";
+import FilterTabs from "../components/FilterTabs.svelte";
+
+import { LAMPS } from "../data";
+import { Variant } from "../types";
+
+const tabs = Object.values(Variant)
+    .map((value) => ({
+        value,
+        count: LAMPS.filter((l) => l.variant === value && l.images.length > 0)
+            .length,
+    }))
+    .filter((t) => t.count > 0);
 ---
 
-<Layout title="TODO">
-	<main>
-		<LandingHero />
-		<!-- <SectionAbout /> -->
-	</main>
+<Layout title="Morfar's Lamper">
+    <main class="pt-24 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        {/* Page header */}
+        <div class="mb-16 flex flex-col gap-4">
+            <span
+                class="text-brass text-xs font-medium uppercase tracking-[0.25em]"
+            >
+                Morfar's
+            </span>
+            <div
+                class="flex flex-col gap-8 md:gap-0 md:flex-row md:items-end justify-between"
+            >
+                <h1
+                    class="font-din text-5xl md:text-6xl text-charcoal leading-tight max-w-lg"
+                >
+                    <div class="flex flex-col gap-2">
+                        <div>Restaurerede</div>
+                        <div class="text-brass">designklassikere</div>
+                    </div>
+                </h1>
+                <p
+                    class="text-mid max-w-sm leading-relaxed text-sm md:text-base"
+                >
+                    Hver lampe er håndplukket og omhyggeligt restaureret til sin
+                    originale pragt — klar til at lyse op i dit hjem.
+                </p>
+            </div>
+            <div class="w-16 h-px bg-brass/40 mt-2"></div>
+        </div>
+
+        {/* Filter tabs */}
+        <FilterTabs {tabs} client:load />
+
+        {/* Grid of cards */}
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {
+                LAMPS.map((lamp) => {
+                    const [image] = lamp.images;
+                    if (!image) return;
+
+                    const title = `${lamp.variant} ${lamp.name}`;
+
+                    return (
+                        <div class="lamp-card" data-variant={lamp.variant}>
+                            <ProductCard
+                                image={image}
+                                title={title}
+                                colors={lamp.colors}
+                                designer={lamp.designer}
+                            />
+                        </div>
+                    );
+                })
+            }
+        </div>
+
+        {/* Bottom CTA strip */}
+        <div
+            class="mt-16 rounded-2xl bg-warm-white border border-brass/20 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden"
+        >
+            <div class="absolute inset-0 pointer-events-none">
+                <div
+                    class="absolute -top-12 -right-12 w-64 h-64 bg-brass/8 rounded-full blur-3xl"
+                >
+                </div>
+                <div
+                    class="absolute -bottom-8 -left-8 w-48 h-48 bg-brass/5 rounded-full blur-2xl"
+                >
+                </div>
+            </div>
+            <div class="relative flex flex-col gap-2 text-center md:text-left">
+                <span
+                    class="text-brass text-xs uppercase tracking-[0.2em] font-medium"
+                    >Har du en lampe?</span
+                >
+                <p class="text-2xl md:text-3xl text-charcoal">
+                    Vi restaurerer også din lampe
+                </p>
+                <p class="text-mid text-sm max-w-md">
+                    Send os billeder og få et uforpligtende tilbud på
+                    restaurering af din gamle designlampe.
+                </p>
+            </div>
+            <a
+                href="#"
+                class="relative shrink-0 inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-brass hover:bg-brass-light text-cream font-medium text-sm transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-brass/20"
+            >
+                Få et tilbud
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
+                </svg>
+            </a>
+        </div>
+    </main>
 </Layout>

@@ -11,6 +11,15 @@ export default defineConfig({
   integrations: [svelte()],
   vite: {
     plugins: [tailwindcss(),]
+
   },
   adapter: netlify(),
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+      config: {
+        rotate: false,
+      }
+    }
+  }
 });
