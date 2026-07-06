@@ -13,7 +13,8 @@ const tabs = Object.values(Variant)
         count: LAMPS.filter((l) => l.variant === value && l.images.length > 0)
             .length,
     }))
-    .filter((t) => t.count > 0);
+    .filter((t) => t.count > 0)
+    .sort((a, b) => b.count - a.count);
 ---
 
 <Layout title="Morfar's Lamper">
@@ -57,7 +58,7 @@ const tabs = Object.values(Variant)
                     if (!image) return;
 
                     const title = `${lamp.variant} ${lamp.name}`;
-
+                    2023;
                     return (
                         <div class="lamp-card" data-variant={lamp.variant}>
                             <ProductCard
