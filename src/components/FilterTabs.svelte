@@ -22,10 +22,10 @@
     <!-- All tab -->
     <button
         on:click={() => setFilter("all")}
-        class="relative px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 {active ===
+        class="relative px-5 py-2 rounded-full text-sm font-medium border transition-all duration-300 {active ===
         'all'
-            ? 'bg-brass text-cream shadow-lg shadow-brass/25'
-            : 'bg-warm-white border border-brass/20 text-mid hover:border-brass/50 hover:text-charcoal'}"
+            ? 'bg-brass text-cream border-transparent shadow-lg shadow-brass/25'
+            : 'bg-warm-white border-brass/20 text-mid hover:border-brass/50 hover:text-charcoal'}"
     >
         Alle
         <span
@@ -40,10 +40,10 @@
     {#each tabs as tab}
         <button
             on:click={() => setFilter(tab.value)}
-            class="relative px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 {active ===
+            class="relative px-5 py-2 rounded-full text-sm font-medium border transition-all duration-300 {active ===
             tab.value
-                ? 'bg-brass text-cream shadow-lg shadow-brass/25'
-                : 'bg-warm-white border border-brass/20 text-mid hover:border-brass/50 hover:text-charcoal'}"
+                ? 'bg-brass text-cream border-transparent shadow-lg shadow-brass/25'
+                : 'bg-warm-white border-brass/20 text-mid hover:border-brass/50 hover:text-charcoal'}"
         >
             {tab.value}
             <span

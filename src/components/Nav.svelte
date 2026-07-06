@@ -1,6 +1,6 @@
 <script lang="ts">
     import cn from "classnames";
-    import { Menu, X, House } from "lucide-svelte";
+    import { Menu, X, House, Lamp, LampCeiling } from "lucide-svelte";
     import { fade, fly } from "svelte/transition";
 
     interface Props {
@@ -55,13 +55,13 @@
         <a
             href="/"
             class={cn(
-                "font-din text-charcoal tracking-wide transition-all duration-300 select-none",
+                "font-din text-brass tracking-wide transition-all duration-300 select-none",
                 isScrolled
                     ? "text-base opacity-100"
-                    : "text-base opacity-0 pointer-events-none",
+                    : "text-base opacity-50 pointer-events-none",
             )}
         >
-            Morfar's lamper
+            <LampCeiling />
         </a>
 
         <nav

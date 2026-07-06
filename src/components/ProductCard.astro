@@ -7,7 +7,9 @@ import type { Designer } from "../types";
 interface Props {
     image: ImageMetadata;
     title: string;
-    colors: LampColors;
+    href?: string;
+    // For color changes during restoration
+    colors?: LampColors;
     subtitle?: string;
     description?: string;
     designer?: Designer;
@@ -17,6 +19,7 @@ interface Props {
 const {
     image,
     title,
+    href = '#',
     subtitle,
     description,
     designer,
@@ -28,7 +31,7 @@ const {
 {
     variant === "featured" ? (
         <a
-            href={"TODO"}
+            href={href}
             class="group relative flex flex-col md:flex-row overflow-hidden rounded-2xl bg-warm-white border border-brass/15 hover:border-brass/35 transition-all duration-500 hover:shadow-xl hover:shadow-brass/10"
         >
             {/* Image */}
@@ -108,7 +111,7 @@ const {
     ) : (
         /* Grid card */
         <a
-            href={"TODO"}
+            href={href}
             class="group relative flex flex-col overflow-hidden rounded-2xl bg-warm-white border border-brass/15 hover:border-brass/35 transition-all duration-500 hover:shadow-xl hover:shadow-brass/10 hover:-translate-y-1"
         >
             {/* Image */}
@@ -129,22 +132,26 @@ const {
                     {title}
                 </h3>
 
-                <div class="flex gap-2">
-                    {colors.map((color) => {
-                        const id = getAssortmentId(color);
-                        return (
-                            <div
-                                style={{ backgroundColor: color }}
-                                class="h-6 w-10 rounded-full flex items-center justify-center"
-                                class:list={[
-                                    id === 1 ? "text-charcoal" : "text-white",
-                                ]}
-                            >
-                                {id}
-                            </div>
-                        );
-                    })}
-                </div>
+                {colors && (
+                    <div class="flex gap-2">
+                        {colors.map((color) => {
+                            const id = getAssortmentId(color);
+                            return (
+                                <div
+                                    style={{ backgroundColor: color }}
+                                    class="h-6 w-10 rounded-full flex items-center justify-center"
+                                    class:list={[
+                                        id === 1
+                                            ? "text-charcoal"
+                                            : "text-white",
+                                    ]}
+                                >
+                                    {id}
+                                </div>
+                            );
+                        })}
+                    </div>
+                )}
 
                 {description && (
                     <p class="text-mid text-sm leading-relaxed line-clamp-2">

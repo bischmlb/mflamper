@@ -99,6 +99,34 @@ import IMG21_1 from './assets/lamps/21/21_1.webp'
 import IMG21_2 from './assets/lamps/21/21_2.webp'
 import IMG21_3 from './assets/lamps/21/21_3.webp'
 
+// jubi - roed
+import JUBI_ROED_1 from './assets/lamps/jubi/roed/IMG_4470.webp'
+import JUBI_ROED_2 from './assets/lamps/jubi/roed/IMG_4471.webp'
+
+// jubi - hvid
+import JUBI_HVID_1 from './assets/lamps/jubi/hvid/IMG_4509.webp'
+import JUBI_HVID_2 from './assets/lamps/jubi/hvid/IMG_4512.webp'
+
+// jubi - groen
+import JUBI_GROEN_1 from './assets/lamps/jubi/groen/IMG_4515.webp'
+import JUBI_GROEN_2 from './assets/lamps/jubi/groen/IMG_4516.webp'
+
+// jubi - sort
+import JUBI_SORT_1 from './assets/lamps/jubi/sort/IMG_4520.webp'
+import JUBI_SORT_2 from './assets/lamps/jubi/sort/IMG_4521.webp'
+
+// jubi - graa-roed
+import JUBI_GRAA_ROED_1 from './assets/lamps/jubi/graa-roed/IMG_4472.webp'
+import JUBI_GRAA_ROED_2 from './assets/lamps/jubi/graa-roed/IMG_4513.webp'
+import JUBI_GRAA_ROED_3 from './assets/lamps/jubi/graa-roed/IMG_4514.webp'
+
+// jubi - graa-groen-roed
+import JUBI_GRAA_GROEN_ROED_1 from './assets/lamps/jubi/graa-groen-roed/IMG_4517.webp'
+import JUBI_GRAA_GROEN_ROED_2 from './assets/lamps/jubi/graa-groen-roed/IMG_4518.webp'
+
+// jubi - graa-sort-roed
+import JUBI_GRAA_SORT_ROED_1 from './assets/lamps/jubi/graa-sort-roed/IMG_4523.webp'
+
 
 export const LAMPS = [
     { name: 'Azo Orange Dyb', variant: Variant.royal, colors: [TwSprayColor.MTN_AZO_ORANGE_DEEP], images: [AJ_IMG16_1], designer: Designer.arne_jacobsen },
@@ -122,7 +150,13 @@ export const LAMPS = [
     { name: 'Blåviolet Mørk', variant: Variant.ph5, colors: [TwSprayColor.MTN_BLUE_VIOLET_DARK], images: [IMG21_1, IMG21_2, IMG21_3], designer: Designer.ph },
     { name: 'Cadmium Gul', variant: Variant.ph5, colors: [TwSprayColor.MTN_CADMIUM_YELLOW_MEDIUM], images: [], designer: Designer.ph },
     { name: 'Ultramarine Blå', variant: Variant.ph5, colors: [TwSprayColor.MTN_ULTRAMARINE_BLUE], images: [], designer: Designer.ph },
-    { name: 'Eldorado Gul', variant: Variant.ph5, colors: [TwSprayColor.MTN_ELDORADO_YELLOW], images: [], designer: Designer.ph }
+    { name: 'Eldorado Gul', variant: Variant.ph5, colors: [TwSprayColor.MTN_ELDORADO_YELLOW], images: [], designer: Designer.ph },
+    // Jubilæum
+    { name: 'Rød', variant: Variant.jubi_ph5, colors: [], images: [JUBI_ROED_1, JUBI_ROED_2], designer: Designer.ph },
+    { name: 'Hvid', variant: Variant.jubi_ph5, colors: [], images: [JUBI_HVID_1, JUBI_HVID_2], designer: Designer.ph },
+    { name: 'Grøn', variant: Variant.jubi_ph5, colors: [], images: [JUBI_GROEN_1, JUBI_GROEN_2], designer: Designer.ph },
+    { name: 'Sort', variant: Variant.jubi_ph5, colors: [], images: [JUBI_SORT_1, JUBI_SORT_2], designer: Designer.ph },
+    { name: 'Grå, Grøn og Rød', variant: Variant.jubi_ph5, colors: [], images: [JUBI_GRAA_GROEN_ROED_1, JUBI_GRAA_GROEN_ROED_2], designer: Designer.ph },
 ] as const;
 
 

@@ -9,6 +9,7 @@ import { Variant } from "../types";
 const tabs = Object.values(Variant)
     .map((value) => ({
         value,
+        label: value,
         count: LAMPS.filter((l) => l.variant === value && l.images.length > 0)
             .length,
     }))
@@ -51,7 +52,7 @@ const tabs = Object.values(Variant)
         {/* Grid of cards */}
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {
-                LAMPS.map((lamp) => {
+                LAMPS.map((lamp, lampIndex) => {
                     const [image] = lamp.images;
                     if (!image) return;
 
@@ -62,6 +63,7 @@ const tabs = Object.values(Variant)
                             <ProductCard
                                 image={image}
                                 title={title}
+                                href={`/lamps/${lampIndex}`}
                                 colors={lamp.colors}
                                 designer={lamp.designer}
                             />
@@ -99,7 +101,7 @@ const tabs = Object.values(Variant)
                 </p>
             </div>
             <a
-                href="#"
+                href="mailto:pnentreprise@outlook.dk"
                 class="relative shrink-0 inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-brass hover:bg-brass-light text-cream font-medium text-sm transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-brass/20"
             >
                 Få et tilbud

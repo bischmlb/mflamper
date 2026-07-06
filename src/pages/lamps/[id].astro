@@ -1,0 +1,224 @@
+---
+import { getImage } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import LampGallery from "../../components/LampGallery.svelte";
+import { LAMPS, getAssortmentId } from "../../data";
+
+export async function getStaticPaths() {
+    return LAMPS.map((lamp, index) => ({ lamp, params: { id: String(index) } }))
+        .filter(({ lamp }) => lamp.images.length > 0)
+        .map(({ params }) => ({ params }));
+}
+
+const { id } = Astro.params;
+const index = Number(id);
+const lamp = LAMPS[index];
+
+const processedImages = await Promise.all(
+    lamp.images.map((img) => getImage({ src: img })),
+);
+const imageSrcs = processedImages.map((img) => img.src);
+
+// Other lamps of the same variant for color switching
+const sameVariant = LAMPS.map((l, i) => ({ lamp: l, index: i })).filter(
+    ({ lamp: l, index: i }) =>
+        l.variant === lamp.variant && l.images.length > 0 && i !== index,
+);
+
+// Process first image of each sibling for thumbnails
+const siblingThumbs = await Promise.all(
+    sameVariant.map(({ lamp: l }) =>
+        getImage({ src: l.images[0], width: 160, height: 160 }),
+    ),
+);
+
+const title = `${lamp.variant} — ${lamp.name}`;
+---
+
+<Layout title={title}>
+    <main class="pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-8xl mx-auto">
+        <!-- Back -->
+        <a
+            href="/"
+            class="inline-flex items-center gap-2 text-xs text-mid/60 hover:text-brass uppercase tracking-widest transition-colors mb-10"
+        >
+            <svg
+                class="w-3.5 h-3.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"></path>
+            </svg>
+            Tilbage til oversigt
+        </a>
+
+        <!-- Main layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+            <!-- Gallery -->
+            <div class="w-full">
+                <LampGallery images={imageSrcs} client:load />
+            </div>
+
+            <!-- Info panel -->
+            <div class="flex flex-col gap-8">
+                <!-- Label + title -->
+                <div>
+                    <p
+                        class="text-brass uppercase text-xs tracking-widest flex items-center gap-3 mb-3"
+                    >
+                        <span class="block w-8 h-px bg-brass"></span>
+                        {lamp.variant}
+                    </p>
+                    <h1
+                        class="text-4xl md:text-5xl text-charcoal font-light leading-tight"
+                    >
+                        {lamp.name}
+                    </h1>
+                </div>
+
+                <!-- Designer -->
+                {
+                    lamp.designer && (
+                        <div class="flex items-center gap-2 text-sm text-mid/70">
+                            <svg
+                                class="w-4 h-4 text-brass/60 shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                                />
+                            </svg>
+                            Designet af{" "}
+                            <span class="text-mid font-medium">
+                                {lamp.designer}
+                            </span>
+                        </div>
+                    )
+                }
+
+                <!-- Color swatches -->
+                {
+                    !!lamp.colors.length && (
+                        <div class="flex flex-col gap-3">
+                            <p class="text-xs uppercase tracking-widest text-mid/50">
+                                Farver
+                            </p>
+                            <div class="flex gap-2">
+                                {lamp.colors.map((color) => {
+                                    const id = getAssortmentId(color);
+                                    return (
+                                        <div
+                                            style={{ backgroundColor: color }}
+                                            class="h-8 w-14 rounded-full flex items-center justify-center text-xs font-medium shadow-sm"
+                                            class:list={[
+                                                color === "#FFFFFF"
+                                                    ? "text-charcoal border border-charcoal/10"
+                                                    : "text-white",
+                                            ]}
+                                            title={color}
+                                        >
+                                            {id}
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    )
+                }
+
+                <div class="w-full h-px bg-brass/15"></div>
+
+                <!-- Same-variant color options -->
+                {
+                    sameVariant.length > 0 && (
+                        <div class="flex flex-col gap-4">
+                            <p class="text-xs uppercase tracking-widest text-mid/50">
+                                Andre farver i {lamp.variant}
+                            </p>
+                            <div class="flex flex-wrap gap-3">
+                                {sameVariant.map(
+                                    ({ lamp: sibling, index: sibIndex }, i) => (
+                                        <a
+                                            href={`/lamps/${sibIndex}`}
+                                            class="group flex flex-col items-center gap-1.5"
+                                            title={sibling.name}
+                                        >
+                                            <div class="w-16 h-16 rounded-xl overflow-hidden border-2 border-transparent group-hover:border-brass transition-all duration-200">
+                                                <img
+                                                    src={siblingThumbs[i].src}
+                                                    alt={sibling.name}
+                                                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                                                />
+                                            </div>
+                                            <span class="text-xs text-mid/60 group-hover:text-brass transition-colors text-center leading-tight max-w-16 truncate">
+                                                {sibling.name}
+                                            </span>
+                                        </a>
+                                    ),
+                                )}
+                            </div>
+                        </div>
+                    )
+                }
+
+                <!-- CTA -->
+                <div class="flex flex-col gap-4">
+                    <p class="text-sm text-mid/70 leading-relaxed">
+                        Interesseret i denne lampe? Kontakt os for pris og
+                        tilgængelighed.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <a
+                            href="tel:+4540518033"
+                            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brass hover:bg-brass-light text-cream text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-brass/20"
+                        >
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 6.75z"
+                                ></path>
+                            </svg>
+                            Ring til os
+                        </a>
+                        <a
+                            href="mailto:pnentreprise@outlook.dk"
+                            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-warm-white border border-brass/20 hover:border-brass/50 text-mid text-sm font-medium transition-all duration-300 hover:-translate-y-0.5"
+                        >
+                            <svg
+                                class="w-4 h-4 text-brass"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                                ></path>
+                            </svg>
+                            Send en mail
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</Layout>
