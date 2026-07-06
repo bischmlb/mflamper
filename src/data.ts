@@ -154,9 +154,8 @@ export const LAMPS = [
     // Jubilæum
     { name: 'Rød', variant: Variant.jubi_ph5, colors: [], images: [JUBI_ROED_1, JUBI_ROED_2], designer: Designer.ph },
     { name: 'Hvid', variant: Variant.jubi_ph5, colors: [], images: [JUBI_HVID_1, JUBI_HVID_2], designer: Designer.ph },
-    { name: 'Wasabi', variant: Variant.jubi_ph5, colors: [], images: [JUBI_GROEN_1, JUBI_GROEN_2], designer: Designer.ph },
+    { name: 'Wasabi', variant: Variant.jubi_ph5, colors: [], images: [JUBI_GROEN_1, JUBI_GROEN_2, JUBI_GRAA_GROEN_ROED_1, JUBI_GRAA_GROEN_ROED_2], designer: Designer.ph },
     { name: 'Sort', variant: Variant.jubi_ph5, colors: [], images: [JUBI_SORT_1, JUBI_SORT_2], designer: Designer.ph },
-    { name: 'Grå, Grøn og Rød', variant: Variant.jubi_ph5, colors: [], images: [JUBI_GRAA_GROEN_ROED_1, JUBI_GRAA_GROEN_ROED_2], designer: Designer.ph },
 ] as const;
 
 
