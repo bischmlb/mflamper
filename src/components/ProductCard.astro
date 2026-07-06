@@ -19,7 +19,7 @@ interface Props {
 const {
     image,
     title,
-    href = '#',
+    href = "#",
     subtitle,
     description,
     designer,
@@ -139,12 +139,13 @@ const {
                             return (
                                 <div
                                     style={{ backgroundColor: color }}
-                                    class="h-6 w-10 rounded-full flex items-center justify-center"
+                                    class="h-6 w-12 rounded-full flex items-center justify-center text-xs font-medium shadow-sm"
                                     class:list={[
-                                        id === 1
-                                            ? "text-charcoal"
+                                        color === "#FFFFFF"
+                                            ? "text-charcoal border border-charcoal/10"
                                             : "text-white",
                                     ]}
+                                    title={color}
                                 >
                                     {id}
                                 </div>
