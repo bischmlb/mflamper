@@ -131,7 +131,7 @@ import JUBI_GRAA_SORT_ROED_1 from './assets/lamps/jubi/graa-sort-roed/IMG_4523.w
 export const LAMPS = [
     { name: 'Azo Orange Dyb', variant: Variant.royal, colors: [TwSprayColor.MTN_AZO_ORANGE_DEEP], images: [AJ_IMG16_1], designer: Designer.arne_jacobsen },
     { name: 'Mat Hvid', variant: Variant.ph5, colors: [TwSprayColor.MATTE_WHITE], images: [IMG1_1, IMG1_2, IMG1_3, IMG1_4, IMG1_5, IMG1_6], designer: Designer.ph },
-    { name: 'Virum lampen', variant: Variant.ph5, colors: [TwSprayColor.MTN_GREY_GREEN, TwSprayColor.MTN_GREY_GREEN_DARK], images: [IMG2_1, IMG2_2, IMG2_3], designer: Designer.ph },
+    { name: 'Virum', variant: Variant.ph5, colors: [TwSprayColor.MTN_GREY_GREEN, TwSprayColor.MTN_GREY_GREEN_DARK], images: [IMG2_1, IMG2_2, IMG2_3], designer: Designer.ph },
     { name: 'Blåviolet Lys', variant: Variant.ph5, colors: [TwSprayColor.MTN_BLUE_VIOLET_LIGHT], images: [IMG3_1, IMG3_2, IMG3_3], designer: Designer.ph },
     { name: 'Primærblå Mørk', variant: Variant.ph5, colors: [TwSprayColor.MTN_PRIMARY_BLUE_DARK], images: [IMG4_1, IMG4_2, IMG4_3], designer: Designer.ph },
     { name: 'Bordeaux', variant: Variant.ph5, colors: [TwSprayColor.MTN_BORDEAUX], images: [IMG5_1, IMG5_2, IMG5_3], designer: Designer.ph },
