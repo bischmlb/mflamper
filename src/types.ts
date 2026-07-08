@@ -46,6 +46,6 @@ export enum Designer {
 export enum Variant {
     ph4 = 'PH 4',
     ph5 = 'PH 5',
-    royal = 'AJ Royal',
+    royal = 'AJ Royal 500',
     jubi_ph5 = 'PH 5 Jubilæum',
 }

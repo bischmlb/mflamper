@@ -6,11 +6,15 @@ import IMG1_3 from './assets/lamps/1/IMG_4474.webp'
 import IMG1_4 from './assets/lamps/1/IMG_4494.webp'
 import IMG1_5 from './assets/lamps/1/IMG_4495.webp'
 import IMG1_6 from './assets/lamps/1/IMG_4498.webp'
+import AJ_IMG1_1 from './assets/lamps/1/IMG_3430.jpeg'
 
 // 2
 import IMG2_1 from './assets/lamps/2/IMG_4502.webp'
 import IMG2_2 from './assets/lamps/2/IMG_4503.webp'
 import IMG2_3 from './assets/lamps/2/IMG_4504.webp'
+import AJ_IMG2_1 from './assets/lamps/2/IMG_3436.jpeg'
+import AJ_IMG2_2 from './assets/lamps/2/IMG_3437.jpeg'
+import AJ_IMG2_3 from './assets/lamps/2/IMG_3438.jpeg'
 
 // 3
 import IMG3_1 from './assets/lamps/3/IMG_4460.webp'
@@ -77,6 +81,7 @@ import IMG16_1 from './assets/lamps/16/IMG_4454.webp'
 import IMG16_2 from './assets/lamps/16/IMG_4455.webp'
 import IMG16_3 from './assets/lamps/16/IMG_4456.webp'
 import AJ_IMG16_1 from './assets/lamps/16/IMG_3957.jpeg'
+import AJ_IMG16_2 from './assets/lamps/16/Outlook-IMG_3956.j.jpg'
 
 
 // 17
@@ -129,7 +134,9 @@ import JUBI_GRAA_SORT_ROED_1 from './assets/lamps/jubi/graa-sort-roed/IMG_4523.w
 
 
 export const LAMPS = [
-    { name: 'Azo Orange Dyb', variant: Variant.royal, colors: [TwSprayColor.MTN_AZO_ORANGE_DEEP], images: [AJ_IMG16_1], designer: Designer.arne_jacobsen },
+    { name: 'Azo Orange Dyb', variant: Variant.royal, colors: [TwSprayColor.MTN_AZO_ORANGE_DEEP], images: [AJ_IMG16_1, AJ_IMG16_2], designer: Designer.arne_jacobsen },
+    { name: 'Mat Hvid', variant: Variant.royal, colors: [TwSprayColor.MATTE_WHITE], images: [AJ_IMG1_1], designer: Designer.arne_jacobsen },
+    { name: 'Grågrøn', variant: Variant.royal, colors: [TwSprayColor.MTN_GREY_GREEN], images: [AJ_IMG2_1, AJ_IMG2_2, AJ_IMG2_3], designer: Designer.arne_jacobsen },
     { name: 'Mat Hvid', variant: Variant.ph5, colors: [TwSprayColor.MATTE_WHITE], images: [IMG1_1, IMG1_2, IMG1_3, IMG1_4, IMG1_5, IMG1_6], designer: Designer.ph },
     { name: 'Virum', variant: Variant.ph5, colors: [TwSprayColor.MTN_GREY_GREEN, TwSprayColor.MTN_GREY_GREEN_DARK], images: [IMG2_1, IMG2_2, IMG2_3], designer: Designer.ph },
     { name: 'Blåviolet Lys', variant: Variant.ph5, colors: [TwSprayColor.MTN_BLUE_VIOLET_LIGHT], images: [IMG3_1, IMG3_2, IMG3_3], designer: Designer.ph },

@@ -15,7 +15,7 @@ const index = Number(id);
 const lamp = LAMPS[index];
 
 const processedImages = await Promise.all(
-    lamp.images.map((img) => getImage({ src: img })),
+    lamp.images.map((img) => getImage({ src: img, width: 1200, format: 'webp' })),
 );
 const imageSrcs = processedImages.map((img) => img.src);
 
