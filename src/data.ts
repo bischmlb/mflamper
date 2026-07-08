@@ -7,6 +7,8 @@ import IMG1_4 from './assets/lamps/1/IMG_4494.webp'
 import IMG1_5 from './assets/lamps/1/IMG_4495.webp'
 import IMG1_6 from './assets/lamps/1/IMG_4498.webp'
 import AJ_IMG1_1 from './assets/lamps/1/IMG_3430.jpeg'
+import PH4_IMG1_1 from './assets/lamps/1/IMG_2248.jpeg'
+import PH4_IMG1_2 from './assets/lamps/1/IMG_2249.jpeg'
 
 // 2
 import IMG2_1 from './assets/lamps/2/IMG_4502.webp'
@@ -40,11 +42,18 @@ import IMG6_3 from './assets/lamps/6/IMG_4485.webp'
 import IMG7_1 from './assets/lamps/7/IMG_4491.webp'
 import IMG7_2 from './assets/lamps/7/IMG_4492.webp'
 import IMG7_3 from './assets/lamps/7/IMG_4493.webp'
+import PH4_IMG7_1 from './assets/lamps/7/IMG_2256.jpeg'
+import PH4_IMG7_2 from './assets/lamps/7/IMG_2257.jpeg'
+import PH4_IMG7_3 from './assets/lamps/7/IMG_2258.jpeg'
 
 // 8
 import IMG8_1 from './assets/lamps/8/4.webp'
 import IMG8_2 from './assets/lamps/8/5.webp'
 import IMG8_3 from './assets/lamps/8/unnamed.webp'
+import PH4_IMG8_1 from './assets/lamps/8/IMG_2233.jpeg'
+import PH4_IMG8_2 from './assets/lamps/8/IMG_2234.jpeg'
+import PH4_IMG8_3 from './assets/lamps/8/IMG_2235.jpeg'
+import PH4_IMG8_4 from './assets/lamps/8/IMG_2240.jpeg'
 
 // 9
 import IMG9_1 from './assets/lamps/9/IMG_4505.webp'
@@ -65,6 +74,9 @@ import IMG12_3 from './assets/lamps/12/IMG_4501.webp'
 import IMG13_1 from './assets/lamps/13/IMG_4457.webp'
 import IMG13_2 from './assets/lamps/13/IMG_4458.webp'
 import IMG13_3 from './assets/lamps/13/IMG_4459.webp'
+import PH4_IMG13_1 from './assets/lamps/13/IMG_2253.jpeg'
+import PH4_IMG13_2 from './assets/lamps/13/IMG_2254.jpeg'
+import PH4_IMG13_3 from './assets/lamps/13/IMG_2255.jpeg'
 
 // 14
 import IMG14_1 from './assets/lamps/14/IMG_4436.webp'
@@ -137,6 +149,11 @@ export const LAMPS = [
     { name: 'Azo Orange Dyb', variant: Variant.royal, colors: [TwSprayColor.MTN_AZO_ORANGE_DEEP], images: [AJ_IMG16_1, AJ_IMG16_2], designer: Designer.arne_jacobsen },
     { name: 'Mat Hvid', variant: Variant.royal, colors: [TwSprayColor.MATTE_WHITE], images: [AJ_IMG1_1], designer: Designer.arne_jacobsen },
     { name: 'Grågrøn', variant: Variant.royal, colors: [TwSprayColor.MTN_GREY_GREEN], images: [AJ_IMG2_1, AJ_IMG2_2, AJ_IMG2_3], designer: Designer.arne_jacobsen },
+    // PH4
+    { name: 'Mat Hvid', variant: Variant.ph4, colors: [TwSprayColor.MATTE_WHITE], images: [PH4_IMG1_1, PH4_IMG1_2], designer: Designer.ph },
+    { name: 'Phthalo Grøn Blå', variant: Variant.ph4, colors: [TwSprayColor.MTN_PHTHALO_GREEN_BLUE], images: [PH4_IMG7_1, PH4_IMG7_2, PH4_IMG7_3], designer: Designer.ph },
+    { name: 'Mat Sort', variant: Variant.ph4, colors: [TwSprayColor.MTN_MATTE_BLACK], images: [PH4_IMG8_1, PH4_IMG8_2, PH4_IMG8_3, PH4_IMG8_4], designer: Designer.ph },
+    { name: 'Phthalo Blå Lys', variant: Variant.ph4, colors: [TwSprayColor.MTN_PHTHALO_BLUE_LIGHT], images: [PH4_IMG13_1, PH4_IMG13_2, PH4_IMG13_3], designer: Designer.ph },
     { name: 'Mat Hvid', variant: Variant.ph5, colors: [TwSprayColor.MATTE_WHITE], images: [IMG1_1, IMG1_2, IMG1_3, IMG1_4, IMG1_5, IMG1_6], designer: Designer.ph },
     { name: 'Virum', variant: Variant.ph5, colors: [TwSprayColor.MTN_GREY_GREEN, TwSprayColor.MTN_GREY_GREEN_DARK], images: [IMG2_1, IMG2_2, IMG2_3], designer: Designer.ph },
     { name: 'Blåviolet Lys', variant: Variant.ph5, colors: [TwSprayColor.MTN_BLUE_VIOLET_LIGHT], images: [IMG3_1, IMG3_2, IMG3_3], designer: Designer.ph },
