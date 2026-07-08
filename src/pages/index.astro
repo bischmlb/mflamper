@@ -15,6 +15,11 @@ const tabs = Object.values(Variant)
     }))
     .filter((t) => t.count > 0)
     .sort((a, b) => b.count - a.count);
+
+const wasabiIndex = LAMPS.findIndex(
+    (l) => l.variant === Variant.jubi_ph5 && l.name === "Wasabi",
+);
+const wasabi = LAMPS[wasabiIndex];
 ---
 
 <Layout title="Morfar's Lamper">
@@ -45,6 +50,28 @@ const tabs = Object.values(Variant)
                 </p>
             </div>
             <div class="w-16 h-px bg-brass/40 mt-2"></div>
+        </div>
+
+        {/* Featured card */}
+        <div class="mb-16">
+            <ProductCard
+                image={wasabi.images[0]}
+                title={wasabi.name}
+                href={`/lamps/${wasabiIndex}`}
+                subtitle={wasabi.variant}
+                description="En sjælden jubilæumsudgave af PH 5 i den karakteristiske wasabi-grønne farve — restaureret og klar til et nyt hjem."
+                designer={wasabi.designer}
+                variant="featured"
+            />
+        </div>
+
+        {/* Divider + section label */}
+        <div class="flex items-center gap-4 mb-8">
+            <span
+                class="text-brass text-xs font-medium uppercase tracking-[0.25em]"
+                >Sortiment</span
+            >
+            <div class="flex-1 h-px bg-brass/20"></div>
         </div>
 
         {/* Filter tabs */}

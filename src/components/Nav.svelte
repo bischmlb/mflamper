@@ -44,26 +44,13 @@
 
 <header
     class={cn(
-        "rounded-xl fixed top-1 inset-x-0 mx-auto max-w-[calc(100vw-0.5rem)] w-full z-50 transition-all duration-500 text-lg",
+        "rounded-xl fixed inset-x-0 mx-auto max-w-[calc(100vw-0.5rem)] w-full z-50 transition-all duration-500 text-lg",
         isScrolled ? "backdrop-blur-md bg-cream/85  py-1" : "py-6",
     )}
 >
     <div
         class="w-full max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center"
     >
-        <!-- Wordmark -->
-        <a
-            href="/"
-            class={cn(
-                "font-din text-brass tracking-wide transition-all duration-300 select-none",
-                isScrolled
-                    ? "text-base opacity-100"
-                    : "text-base opacity-50 pointer-events-none",
-            )}
-        >
-            <LampCeiling />
-        </a>
-
         <nav
             class={cn(
                 "relative items-center hidden mx-auto md:flex gap-12 transition-colors duration-300 px-6 py-4 rounded-full font-light text-xl tracking-wide text-charcoal",
@@ -71,7 +58,7 @@
             )}
         >
             <a href="/" aria-current={path === "/"}
-                ><House class="w-5 mt-1" /></a
+                ><LampCeiling class="w-5 mt-1" /></a
             >
         </nav>
 
@@ -114,7 +101,7 @@
                 aria-current={path === "/"}
                 onclick={() => (isMenuOpen = false)}
             >
-                <House class="mt-1" /> Hjem
+                <LampCeiling class="mt-1" /> Hjem
             </a>
         </nav>
 

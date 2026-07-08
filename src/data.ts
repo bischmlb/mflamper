@@ -54,6 +54,9 @@ import PH4_IMG8_1 from './assets/lamps/8/IMG_2233.jpeg'
 import PH4_IMG8_2 from './assets/lamps/8/IMG_2234.jpeg'
 import PH4_IMG8_3 from './assets/lamps/8/IMG_2235.jpeg'
 import PH4_IMG8_4 from './assets/lamps/8/IMG_2240.jpeg'
+import AJ_IMG8_1 from './assets/lamps/8/IMG_3426.jpeg'
+import AJ_IMG8_2 from './assets/lamps/8/IMG_3427.jpeg'
+import AJ_IMG8_3 from './assets/lamps/8/IMG_3428.jpeg'
 
 // 9
 import IMG9_1 from './assets/lamps/9/IMG_4505.webp'
@@ -148,8 +151,8 @@ import JUBI_GRAA_SORT_ROED_1 from './assets/lamps/jubi/graa-sort-roed/IMG_4523.w
 export const LAMPS = [
     { name: 'Azo Orange Dyb', variant: Variant.royal, colors: [TwSprayColor.MTN_AZO_ORANGE_DEEP], images: [AJ_IMG16_1, AJ_IMG16_2], designer: Designer.arne_jacobsen },
     { name: 'Mat Hvid', variant: Variant.royal, colors: [TwSprayColor.MATTE_WHITE], images: [AJ_IMG1_1], designer: Designer.arne_jacobsen },
+    { name: 'Mat Sort', variant: Variant.royal, colors: [TwSprayColor.MTN_MATTE_BLACK], images: [AJ_IMG8_1, AJ_IMG8_2, AJ_IMG8_3], designer: Designer.arne_jacobsen },
     { name: 'Grågrøn', variant: Variant.royal, colors: [TwSprayColor.MTN_GREY_GREEN], images: [AJ_IMG2_1, AJ_IMG2_2, AJ_IMG2_3], designer: Designer.arne_jacobsen },
-    // PH4
     { name: 'Mat Hvid', variant: Variant.ph4, colors: [TwSprayColor.MATTE_WHITE], images: [PH4_IMG1_1, PH4_IMG1_2], designer: Designer.ph },
     { name: 'Phthalo Grøn Blå', variant: Variant.ph4, colors: [TwSprayColor.MTN_PHTHALO_GREEN_BLUE], images: [PH4_IMG7_1, PH4_IMG7_2, PH4_IMG7_3], designer: Designer.ph },
     { name: 'Mat Sort', variant: Variant.ph4, colors: [TwSprayColor.MTN_MATTE_BLACK], images: [PH4_IMG8_1, PH4_IMG8_2, PH4_IMG8_3, PH4_IMG8_4], designer: Designer.ph },
