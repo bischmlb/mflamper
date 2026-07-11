@@ -2,83 +2,83 @@
 
 ---
 
-<footer class="bg-cream text-mid border-t border-brass/20" transition:persist>
-    <!-- Main footer content -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div class="flex flex-col md:flex-row md:justify-between gap-16">
-            <!-- Brand column -->
-            <div class="flex flex-col gap-6">
-                <div>
-                    <p
-                        class="text-brass uppercase text-xs tracking-widest flex items-center gap-3 mb-3"
-                    >
-                        <span class="block w-8 h-px bg-brass"></span>
-                        Siden 2023
-                    </p>
-                    <h3 class="font-light text-3xl text-charcoal">
-                        Morfar's Lamper
+<footer class="bg-cream text-mid" transition:persist>
+    <div class="border-t border-brass/20">
+        <!-- Main footer content -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="flex flex-col md:flex-row md:justify-between gap-16">
+                <!-- Brand column -->
+                <div class="flex flex-col gap-5 max-w-xs">
+                    <div>
+                        <p class="text-brass uppercase text-xs tracking-widest flex items-center gap-3 mb-2">
+                            <span class="block w-8 h-px bg-brass"></span>
+                            Siden 2023
+                        </p>
+                        <h3 class="flex flex-col leading-none">
+                        <span class="font-din text-2xl text-brass font-normal">Morfar's</span>
+                        <span class="text-[10px] uppercase tracking-[0.3em] text-mid font-light mt-0.5">Lamper</span>
                     </h3>
+                    </div>
+                    <p class="font-light text-mid/70 leading-relaxed text-sm">
+                        Vi vækker danske designklassikere til live — med respekt for
+                        det oprindelige håndværk.
+                    </p>
+                    <div class="flex flex-col gap-1 font-light text-xs text-mid/50">
+                        <address class="not-italic">2880 Bagsværd</address>
+                        <span><span class="text-mid/70">CVR:</span> 12971737</span>
+                    </div>
                 </div>
-                <p class="font-light text-mid/80 leading-relaxed text-sm">
-                    Vi vækker danske designklassikere til live — med respekt for
-                    det oprindelige håndværk.
-                </p>
-                <address
-                    class="not-italic font-light text-sm leading-relaxed text-mid/70"
-                >
-                    2880 Bagsværd
-                </address>
-                <div class="font-light text-sm text-mid/70">
-                    <span class="text-mid font-normal">CVR:</span> 12971737
-                </div>
-            </div>
 
-            <!-- Contact column -->
-            <div class="flex flex-col gap-6">
-                <div>
-                    <p
-                        class="text-brass uppercase text-xs tracking-widest flex items-center gap-3 mb-3"
-                    >
+                <!-- Nav column -->
+                <div class="flex flex-col gap-5">
+                    <p class="text-brass uppercase text-xs tracking-widest flex items-center gap-3">
+                        <span class="block w-8 h-px bg-brass"></span>
+                        Navigation
+                    </p>
+                    <nav class="flex flex-col gap-3 font-light text-sm">
+                        <a href="/" class="text-mid/70 hover:text-brass transition-colors duration-300">Forside</a>
+                        <a href="/about" class="text-mid/70 hover:text-brass transition-colors duration-300">Om os</a>
+                    </nav>
+                </div>
+
+                <!-- Contact column -->
+                <div class="flex flex-col gap-5">
+                    <p class="text-brass uppercase text-xs tracking-widest flex items-center gap-3">
                         <span class="block w-8 h-px bg-brass"></span>
                         Kontakt
                     </p>
-                    <h3 class="font-light text-3xl text-charcoal">
-                        Kontaktoplysninger
-                    </h3>
-                </div>
-                <div class="flex flex-col gap-4 font-light text-sm">
-                    <div>
-                        <p class="text-mid/60 mb-1">Ring til os</p>
-                        <a
-                            href="tel:+4540518033"
-                            class="text-mid hover:text-brass transition-colors duration-300"
-                        >
-                            +45 40 51 80 33
-                        </a>
-                    </div>
-                    <div>
-                        <p class="text-mid/60 mb-1">Skriv til os</p>
-                        <a
-                            href="mailto:pnentreprise@outlook.dk"
-                            class="text-mid hover:text-brass transition-colors duration-300"
-                        >
-                            pnentreprise@outlook.dk
-                        </a>
+                    <div class="flex flex-col gap-4 font-light text-sm">
+                        <div>
+                            <p class="text-mid/50 text-xs uppercase tracking-wider mb-1">Telefon</p>
+                            <a
+                                href="tel:+4540518033"
+                                class="text-mid hover:text-brass transition-colors duration-300"
+                            >
+                                +45 40 51 80 33
+                            </a>
+                        </div>
+                        <div>
+                            <p class="text-mid/50 text-xs uppercase tracking-wider mb-1">E-mail</p>
+                            <a
+                                href="mailto:pnentreprise@outlook.dk"
+                                class="text-mid hover:text-brass transition-colors duration-300"
+                            >
+                                pnentreprise@outlook.dk
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Bottom bar -->
-    <div class="border-t border-brass/10">
-        <div
-            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-mid/40 font-light"
-        >
-            <span
-                >© {new Date().getFullYear()} Morfar's Lamper. Alle rettigheder forbeholdes.</span
+        <!-- Bottom bar -->
+        <div class="bg-charcoal">
+            <div
+                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-cream/30 font-light"
             >
-            <span>v/ Jan Lyhne</span>
+                <span>© {new Date().getFullYear()} Morfar's Lamper. Alle rettigheder forbeholdes.</span>
+                <span>v/ Jan Lyhne</span>
+            </div>
         </div>
     </div>
 </footer>

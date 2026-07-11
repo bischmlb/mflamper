@@ -229,9 +229,15 @@ import Hero2 from "../assets/about_img2.jpg";
 </Layout>
 
 <script>
-    const counter = document.getElementById("counter-lamps");
-    const plus = document.getElementById("counter-plus");
-    if (counter) {
+    function initCounter() {
+        const counter = document.getElementById("counter-lamps");
+        const plus = document.getElementById("counter-plus");
+        if (!counter) return;
+
+        // Reset state on each page load
+        counter.textContent = "0";
+        if (plus) plus.classList.add("opacity-0");
+
         const target = 100;
         const duration = 1500;
 
@@ -260,9 +266,11 @@ import Hero2 from "../assets/about_img2.jpg";
                     }
                 });
             },
-            { threshold: 0.5 },
+            { threshold: 0 },
         );
 
         observer.observe(counter);
     }
+
+    document.addEventListener("astro:page-load", initCounter);
 </script>
