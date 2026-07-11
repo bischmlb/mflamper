@@ -135,7 +135,9 @@ import Hero2 from "../assets/about_img2.jpg";
                     class="grid grid-cols-2 gap-6 pt-4 border-t border-brass/15"
                 >
                     <div>
-                        <p class="font-din text-3xl text-charcoal">100+</p>
+                        <p class="font-din text-3xl text-charcoal">
+                            <span id="counter-lamps">0</span><span id="counter-plus" class="opacity-0">+</span>
+                        </p>
                         <p
                             class="text-mid text-xs uppercase tracking-widest mt-1"
                         >
@@ -210,3 +212,42 @@ import Hero2 from "../assets/about_img2.jpg";
         </div>
     </main>
 </Layout>
+
+<script>
+    const counter = document.getElementById("counter-lamps");
+    const plus = document.getElementById("counter-plus");
+    if (counter) {
+        const target = 100;
+        const duration = 1500;
+
+        const animate = () => {
+            const start = performance.now();
+            const step = (now: number) => {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                counter.textContent = String(Math.floor(eased * target));
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    if (plus) plus.classList.remove("opacity-0");
+                }
+            };
+            requestAnimationFrame(step);
+        };
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        animate();
+                        observer.disconnect();
+                    }
+                });
+            },
+            { threshold: 0.5 }
+        );
+
+        observer.observe(counter);
+    }
+</script>
