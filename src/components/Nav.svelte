@@ -1,6 +1,6 @@
 <script lang="ts">
     import cn from "classnames";
-    import { Menu, X, House, Lamp, LampCeiling } from "lucide-svelte";
+    import { LampCeiling } from "lucide-svelte";
     import { fade, fly } from "svelte/transition";
 
     interface Props {
@@ -44,34 +44,64 @@
 
 <header
     class={cn(
-        "rounded-xl fixed inset-x-0 mx-auto max-w-[calc(100vw-0.5rem)] w-full z-50 transition-all duration-500 text-lg",
-        isScrolled ? "backdrop-blur-md bg-cream/85  py-1" : "py-6",
+        "fixed inset-x-0 mx-auto max-w-[calc(100vw-0.5rem)] w-full z-50 transition-all duration-500",
+        isScrolled ? "py-8" : "py-4",
     )}
 >
     <div
-        class="w-full max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center"
+        class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center"
     >
-        <nav
+        <a
+            href="/"
             class={cn(
-                "relative items-center hidden mx-auto md:flex gap-12 transition-colors duration-300 px-6 py-4 rounded-full font-light text-xl tracking-wide text-charcoal",
-                linkStyles,
+                "transition-all duration-500 flex flex-col leading-none",
+                isScrolled ? "opacity-0 pointer-events-none" : "opacity-100",
             )}
         >
-            <a href="/" aria-current={path === "/"}
-                ><LampCeiling class="w-5 mt-1" /></a
+            <span class="font-din text-2xl text-brass font-normal"
+                >Morfar's</span
             >
-            <a href="/about" aria-current={path === "/about"}>Om os</a>
-        </nav>
+            <span
+                class="text-[10px] uppercase tracking-[0.3em] text-mid font-light mt-0.5"
+                >Lamper</span
+            >
+        </a>
 
         <button
-            class="ml-auto md:hidden p-4 focus:outline-none text-charcoal transition-colors"
+            class={cn(
+                "ml-auto focus:outline-none text-charcoal transition-all duration-500 p-3 rounded-full",
+                isScrolled ? "backdrop-blur-xs bg-cream/85" : "",
+            )}
             onclick={() => (isMenuOpen = !isMenuOpen)}
             aria-label="Toggle menu"
         >
             {#if isMenuOpen}
-                <X size={32} />
+                <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 28 28"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                >
+                    <line x1="6" y1="6" x2="22" y2="22" />
+                    <line x1="22" y1="6" x2="6" y2="22" />
+                </svg>
             {:else}
-                <Menu size={32} />
+                <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 28 28"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                >
+                    <line x1="4" y1="9" x2="24" y2="9" />
+                    <line x1="4" y1="15" x2="19" y2="15" />
+                    <line x1="4" y1="21" x2="24" y2="21" />
+                </svg>
             {/if}
         </button>
     </div>
@@ -102,7 +132,7 @@
                 aria-current={path === "/"}
                 onclick={() => (isMenuOpen = false)}
             >
-                <LampCeiling class="mt-1" /> Hjem
+                Hjem
             </a>
             <a
                 href="/about"
