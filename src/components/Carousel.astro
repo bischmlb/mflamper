@@ -8,27 +8,25 @@ interface Props {
 const { direction = "left", className } = Astro.props;
 ---
 
-<div
-    class="relative transition-all w-full
-            overflow-hidden
-             h-full flex"
->
+<div class="relative w-full overflow-hidden h-full flex">
     <div
         class={cn(
             direction === "right" ? "animate-slide-reverse" : "animate-slide",
-            "hover:pause-animation flex text-accent gap-10 items-center justify-start will-change-transform",
+            "hover:pause-animation flex gap-4 items-center justify-start will-change-transform",
             className,
         )}
     >
         <slot />
         <slot aria-disabled="true" />
     </div>
+
+    <!-- Fades only on larger screens where there's page padding on the sides -->
     <div
-        class="transition-all left-0 inset-y-0 bg-linear-to-r w-0 2xl:w-1/20 from-primary to-transparent hidden md:flex absolute pointer-events-none overflow-hidden flex-row"
+        class="hidden lg:block absolute left-0 inset-y-0 w-2 bg-linear-to-r from-cream to-transparent pointer-events-none z-10"
     >
     </div>
     <div
-        class="transition-all right-0 inset-y-0 bg-linear-to-l w-0 2xl:w-1/20 from-primary to-transparent hidden md:flex absolute pointer-events-none overflow-hidden flex-row"
+        class="hidden lg:block absolute right-0 inset-y-0 w-2 bg-linear-to-l from-cream to-transparent pointer-events-none z-10"
     >
     </div>
 </div>

@@ -60,6 +60,7 @@
             <a href="/" aria-current={path === "/"}
                 ><LampCeiling class="w-5 mt-1" /></a
             >
+            <a href="/about" aria-current={path === "/about"}>Om os</a>
         </nav>
 
         <button
@@ -102,6 +103,13 @@
                 onclick={() => (isMenuOpen = false)}
             >
                 <LampCeiling class="mt-1" /> Hjem
+            </a>
+            <a
+                href="/about"
+                aria-current={path === "/about"}
+                onclick={() => (isMenuOpen = false)}
+            >
+                Om os
             </a>
         </nav>
 

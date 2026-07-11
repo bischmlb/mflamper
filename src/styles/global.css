@@ -19,8 +19,8 @@
 
     --animate-nav-hover: navHover 0.25s;
 
-    --animate-slide: slide 50s linear infinite;
-    --animate-slide-reverse: slideReverse 50s linear infinite;
+    --animate-slide: slide 90s linear infinite;
+    --animate-slide-reverse: slideReverse 90s linear infinite;
 
     --container-8xl: 96rem;
     --container-9xl: 112rem;

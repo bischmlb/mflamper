@@ -2,9 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 import ProductCard from "../components/ProductCard.astro";
 import FilterTabs from "../components/FilterTabs.svelte";
+import Carousel from "../components/Carousel.astro";
+import { Image } from "astro:assets";
 
 import { LAMPS } from "../data";
 import { Variant } from "../types";
+
+const carouselLamps = LAMPS.filter((l) => l.images.length > 0);
 
 const tabs = Object.values(Variant)
     .map((value) => ({
@@ -52,24 +56,58 @@ const wasabi = LAMPS[wasabiIndex];
             <div class="w-16 h-px bg-brass/40 mt-2"></div>
         </div>
 
-        {/* Featured card */}
-        <div class="mb-16">
-            <ProductCard
-                image={wasabi.images[0]}
-                title={wasabi.name}
-                href={`/lamps/${wasabiIndex}`}
-                subtitle={wasabi.variant}
-                description="En sjælden jubilæumsudgave af PH 5 i den karakteristiske wasabi-grønne farve — restaureret og klar til et nyt hjem."
-                designer={wasabi.designer}
-                variant="featured"
-            />
+        {/* Image carousel strip */}
+        <div class="-mx-4 sm:-mx-6 lg:-mx-8 mb-16 h-52">
+            <Carousel>
+                {
+                    carouselLamps.map((lamp, i) => (
+                        <a
+                            href={`/lamps/${LAMPS.indexOf(lamp)}`}
+                            class="group shrink-0 relative h-44 w-44 overflow-hidden rounded-xl border border-brass/15 hover:border-brass/40 transition-all duration-500 hover:shadow-lg hover:shadow-brass/10 hover:-translate-y-1"
+                        >
+                            <Image
+                                src={lamp.images[0]!}
+                                alt={`${lamp.variant} ${lamp.name}`}
+                                width={200}
+                                class="w-full h-full object-cover object-center grayscale-20 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                            />
+                            <div class="absolute inset-0 bg-linear-to-t from-charcoal/50 via-transparent to-transparent" />
+                            <span class="absolute bottom-2 left-3 right-3 text-cream text-xs font-medium leading-tight truncate">
+                                {lamp.name}
+                            </span>
+                        </a>
+                    ))
+                }
+            </Carousel>
         </div>
 
-        {/* Divider + section label */}
+        {/* Featured card */}
+
+        <!-- <div class="hidden md:block">
+            <div class="hidden md:flex items-center gap-4 mb-8">
+                <span
+                    class="text-brass text-xs font-medium uppercase tracking-[0.25em]"
+                    >Udvalgt</span
+                >
+                <div class="flex-1 h-px bg-brass/20"></div>
+            </div>
+            <div class="mb-16">
+                <ProductCard
+                    image={wasabi.images[0]!}
+                    title={wasabi.name}
+                    href={`/lamps/${wasabiIndex}`}
+                    subtitle={wasabi.variant}
+                    description="En sjælden jubilæumsudgave af PH 5 i den karakteristiske wasabi-grønne farve — restaureret og klar til et nyt hjem."
+                    designer={wasabi.designer}
+                    variant="featured"
+                />
+            </div>
+        </div> -->
+
         <div class="flex items-center gap-4 mb-8">
             <span
                 class="text-brass text-xs font-medium uppercase tracking-[0.25em]"
-                >Sortiment</span
+                >Udforsk sortimentet</span
             >
             <div class="flex-1 h-px bg-brass/20"></div>
         </div>
