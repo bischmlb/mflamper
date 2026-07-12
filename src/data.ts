@@ -174,10 +174,10 @@ export const LAMPS = [
     { name: 'Phthalo Grøn Blå', variant: Variant.ph4, colors: [TwSprayColor.MTN_PHTHALO_GREEN_BLUE], images: [PH4_IMG7_1, PH4_IMG7_2, PH4_IMG7_3], designer: Designer.ph },
     { name: 'Mat Sort', variant: Variant.ph4, colors: [TwSprayColor.MTN_MATTE_BLACK], images: [PH4_IMG8_1, PH4_IMG8_2, PH4_IMG8_3, PH4_IMG8_4], designer: Designer.ph },
     { name: 'Phthalo Blå Lys', variant: Variant.ph4, colors: [TwSprayColor.MTN_PHTHALO_BLUE_LIGHT], images: [PH4_IMG13_1, PH4_IMG13_2, PH4_IMG13_3], designer: Designer.ph },
-    { name: 'Azo Orange Dyb', variant: Variant.royal, colors: [TwSprayColor.MTN_AZO_ORANGE_DEEP], images: [AJ_IMG16_1, AJ_IMG16_2], designer: Designer.arne_jacobsen },
     { name: 'Mat Hvid', variant: Variant.royal, colors: [TwSprayColor.MATTE_WHITE], images: [AJ_IMG1_1], designer: Designer.arne_jacobsen },
-    { name: 'Mat Sort', variant: Variant.royal, colors: [TwSprayColor.MTN_MATTE_BLACK], images: [AJ_IMG8_1, AJ_IMG8_2, AJ_IMG8_3], designer: Designer.arne_jacobsen },
     { name: 'Grågrøn', variant: Variant.royal, colors: [TwSprayColor.MTN_GREY_GREEN], images: [AJ_IMG2_1, AJ_IMG2_2, AJ_IMG2_3], designer: Designer.arne_jacobsen },
+    { name: 'Mat Sort', variant: Variant.royal, colors: [TwSprayColor.MTN_MATTE_BLACK], images: [AJ_IMG8_1, AJ_IMG8_2, AJ_IMG8_3], designer: Designer.arne_jacobsen },
+    { name: 'Azo Orange Dyb', variant: Variant.royal, colors: [TwSprayColor.MTN_AZO_ORANGE_DEEP], images: [AJ_IMG16_1, AJ_IMG16_2], designer: Designer.arne_jacobsen },
     // Jubilæum
     { name: 'Rød', variant: Variant.jubi_ph5, colors: [], images: [JUBI_ROED_1, JUBI_ROED_2], designer: Designer.ph },
     { name: 'Hvid', variant: Variant.jubi_ph5, colors: [], images: [JUBI_HVID_1, JUBI_HVID_2], designer: Designer.ph },
