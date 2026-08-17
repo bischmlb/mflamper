@@ -121,21 +121,46 @@ const naebet = LAMPS[naebetIndex];
                     const title = `${lamp.variant} ${lamp.name}`;
                     2023;
                     return (
-                        <div class="lamp-card" data-variant={lamp.variant}>
-                            <ProductCard
-                                image={image}
-                                title={title}
-                                href={`/lamps/${lampIndex}`}
-                                colors={lamp.colors}
-                                designer={lamp.designer}
-                            />
-                        </div>
+                        <>
+                            <div class="lamp-card" data-variant={lamp.variant}>
+                                <ProductCard
+                                    image={image}
+                                    title={title}
+                                    href={`/lamps/${lampIndex}`}
+                                    colors={lamp.colors}
+                                    designer={lamp.designer}
+                                />
+                            </div>
+                            {lampIndex === 0 && (
+                                <div class="col-span-1 sm:hidden -mb-2">
+                                    <p class="text-xs text-mid/50">
+                                        Nysgerrig på vores farver? <a href="/colors" class="text-brass hover:underline">Se vores fulde farveindeks her</a>.
+                                    </p>
+                                </div>
+                            )}
+                            {lampIndex === 1 && (
+                                <div class="hidden sm:block lg:hidden col-span-2 -mb-2">
+                                    <p class="text-xs text-mid/50">
+                                        Nysgerrig på vores farver? <a href="/colors" class="text-brass hover:underline">Se vores fulde farveindeks her</a>.
+                                    </p>
+                                </div>
+                            )}
+                            {lampIndex === 2 && (
+                                <div class="hidden lg:block col-span-3 -mb-2">
+                                    <p class="text-xs text-mid/50">
+                                        Nysgerrig på vores farver? <a href="/colors" class="text-brass hover:underline">Se vores fulde farveindeks her</a>.
+                                    </p>
+                                </div>
+                            )}
+                        </>
                     );
                 })
             }
         </div>
 
-        {/* Bottom CTA strip */}
+        <p class="text-xs text-mid/50 -mt-4 mb-8">
+            Nysgerrig på vores farver? <a href="/colors" class="text-brass hover:underline">Se vores fulde farveindeks her</a>.
+        </p>
         <div
             class="mt-16 rounded-2xl bg-warm-white border border-brass/20 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden"
         >

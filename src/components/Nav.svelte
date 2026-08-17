@@ -135,6 +135,13 @@
                 Hjem
             </a>
             <a
+                href="/colors"
+                aria-current={path === "/colors"}
+                onclick={() => (isMenuOpen = false)}
+            >
+                Farveindeks
+            </a>
+            <a
                 href="/about"
                 aria-current={path === "/about"}
                 onclick={() => (isMenuOpen = false)}

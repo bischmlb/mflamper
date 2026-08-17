@@ -1,0 +1,94 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { COLOR_INDEX, LAMPS, getAssortmentId } from "../data";
+import { TwSprayColor } from "../types";
+
+// For each color, find lamps that use it
+const colorWithLamps = COLOR_INDEX.map(({ id, hex, name }) => {
+    const lamps = LAMPS.map((lamp, i) => ({ lamp, index: i })).filter(({ lamp }) =>
+        lamp.colors.includes(hex as TwSprayColor)
+    );
+    return { id, hex, name, lamps };
+});
+---
+
+<Layout title="Farveindeks — Morfar's Lamper">
+    <main class="pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <!-- Header -->
+        <div class="mb-16 flex flex-col gap-4">
+            <a
+                href="/"
+                class="inline-flex items-center gap-2 text-xs text-mid/60 hover:text-brass uppercase tracking-widest transition-colors"
+            >
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                </svg>
+                Tilbage til oversigt
+            </a>
+            <div class="flex flex-col gap-8 md:flex-row md:items-end justify-between mt-6">
+                <h1 class="font-din text-5xl md:text-6xl text-charcoal leading-[1.1] max-w-lg">
+                    <span class="block">Vores</span>
+                    <span class="block text-brass">farveindeks</span>
+                </h1>
+                <p class="text-mid max-w-sm leading-relaxed text-sm md:text-base">
+                    Alle farver vi anvender i vores restaureringer — nummereret og navngivet.
+                </p>
+            </div>
+            <div class="w-16 h-px bg-brass/40 mt-2"></div>
+        </div>
+
+        <!-- Color grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {colorWithLamps.map(({ id, hex, name, lamps }) => {
+                const isLight = ['#FFFFFF', '#FFE885', '#FFDD35', '#ffb511', '#BEC39E', '#B4B8B6', '#B8BB86', '#A5AAA8', '#F8C8C1', '#E1C3CC', '#B985A3', '#BBE9DE', '#C0C0C0'].includes(hex);
+                return (
+                    <div class="group relative overflow-hidden rounded-2xl border border-brass/10 hover:border-brass/30 transition-all duration-300 hover:shadow-lg hover:shadow-brass/10 bg-warm-white">
+                        {/* Color swatch */}
+                        <div
+                            class="h-32 w-full flex items-center justify-center"
+                            style={{ backgroundColor: hex }}
+                        >
+                            <span
+                                class={`font-din text-4xl font-bold ${isLight ? 'text-charcoal/40' : 'text-white/40'}`}
+                            >
+                                {id}
+                            </span>
+                        </div>
+
+                        {/* Info */}
+                        <div class="p-4 flex flex-col gap-2">
+                            <div class="flex items-center justify-between">
+                                <div
+                                    class="w-6 h-6 rounded-full shadow-sm border border-black/5"
+                                    style={{ backgroundColor: hex }}
+                                />
+                                <span class="text-xs font-mono text-mid/40 uppercase">{hex}</span>
+                            </div>
+                            <div>
+                                <p class="text-xs text-brass uppercase tracking-widest font-medium">Nr. {id}</p>
+                                <p class="text-charcoal font-medium">{name}</p>
+                            </div>
+
+                            {/* Lamps using this color */}
+                            {lamps.length > 0 && (
+                                <div class="mt-1 pt-3 border-t border-brass/10">
+                                    <p class="text-xs text-mid/50 uppercase tracking-widest mb-2">Bruges i</p>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        {lamps.map(({ lamp, index }) => (
+                                            <a
+                                                href={`/lamps/${index}`}
+                                                class="text-xs px-2 py-1 rounded-full bg-brass/8 hover:bg-brass/15 text-mid hover:text-charcoal transition-colors truncate max-w-full"
+                                            >
+                                                {lamp.variant} {lamp.name}
+                                            </a>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                );
+            })}
+        </div>
+    </main>
+</Layout>

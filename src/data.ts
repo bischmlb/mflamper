@@ -233,8 +233,8 @@ export const LAMPS = [
     { name: 'Lys Grøn', variant: Variant.ph4_3, colors: [TwSprayColor.MTN_GREY_GREEN_LIGHT, TwSprayColor.MATTE_WHITE, TwSprayColor.MTN_GREY_GREEN], images: [PH4_IMG9_1, PH4_IMG9_2, PH4_IMG9_3], designer: Designer.ph },
     { name: 'Koboltblå', variant: Variant.ph4_3, colors: [TwSprayColor.MTN_COBALT_BLUE, TwSprayColor.MATTE_WHITE], images: [PH4_IMG19_1, PH4_IMG19_2, PH4_IMG19_3], designer: Designer.ph },
     { name: 'Mat Hvid', variant: Variant.ph4_3, colors: [TwSprayColor.MATTE_WHITE], images: [PH43_IMG1_1, PH43_IMG1_2, PH43_IMG1_3], designer: Designer.ph },
-    { name: 'Virum', variant: Variant.ph4_3, colors: [TwSprayColor.MTN_GREY_GREEN, TwSprayColor.MTN_GREY_GREEN_DARK], images: [PH43_IMG2_1, PH43_IMG2_2, PH43_IMG2_3], designer: Designer.ph },
-    { name: 'Lys Grøn', variant: Variant.ph4_3, colors: [TwSprayColor.MTN_GREY_GREEN_LIGHT], images: [PH43_IMG9_1, PH43_IMG9_2, PH43_IMG9_3], designer: Designer.ph },
+    { name: 'Grøn', variant: Variant.ph4_3, colors: [TwSprayColor.MTN_GREY_GREEN, TwSprayColor.MATTE_WHITE], images: [PH43_IMG2_1, PH43_IMG2_2, PH43_IMG2_3], designer: Designer.ph },
+    { name: 'Lys Grøn', variant: Variant.ph4_3, colors: [TwSprayColor.MTN_GREY_GREEN_LIGHT, TwSprayColor.MATTE_WHITE], images: [PH43_IMG9_1, PH43_IMG9_2, PH43_IMG9_3], designer: Designer.ph },
     { name: 'Mat Hvid', variant: Variant.royal, colors: [TwSprayColor.MATTE_WHITE], images: [AJ_IMG1_1], designer: Designer.arne_jacobsen },
     { name: 'Grågrøn', variant: Variant.royal, colors: [TwSprayColor.MTN_GREY_GREEN], images: [AJ_IMG2_1, AJ_IMG2_2, AJ_IMG2_3], designer: Designer.arne_jacobsen },
     { name: 'Mat Sort', variant: Variant.royal, colors: [TwSprayColor.MTN_MATTE_BLACK], images: [AJ_IMG8_1, AJ_IMG8_2, AJ_IMG8_3], designer: Designer.arne_jacobsen },
@@ -267,3 +267,36 @@ export const getAssortmentIdsFromColors = (colors: LampColors) => {
     const lamp = LAMPS.find((lamp) => lamp.colors.every((color, id) => color === colors[id]))
     return lamp?.colors.map((color) => getAssortmentId(color))
 }
+
+export const COLOR_NAMES: Record<TwSprayColor, string> = {
+    [TwSprayColor.MATTE_WHITE]: 'Mat Hvid',
+    [TwSprayColor.MTN_GREY_GREEN]: 'Grågrøn',
+    [TwSprayColor.MTN_BLUE_VIOLET_LIGHT]: 'Blåviolet Lys',
+    [TwSprayColor.MTN_PRIMARY_BLUE_DARK]: 'Primærblå Mørk',
+    [TwSprayColor.MTN_BORDEAUX]: 'Bordeaux',
+    [TwSprayColor.MTN_NEUTRAL_GREY]: 'Neutralgrå',
+    [TwSprayColor.MTN_PHTHALO_GREEN_BLUE]: 'Phthalo Grøn Blå',
+    [TwSprayColor.MTN_MATTE_BLACK]: 'Mat Sort',
+    [TwSprayColor.MTN_GREY_GREEN_LIGHT]: 'Lys Grøn',
+    [TwSprayColor.MTN_NEUTRAL_GREY_LIGHT]: 'Neutralgrå Lys',
+    [TwSprayColor.MTN_GREY_GREEN_DARK]: 'Grågrøn Mørk',
+    [TwSprayColor.MTN_CADMIUN_YELLOW_LIGHT]: 'Cadmiumgul Lys',
+    [TwSprayColor.MTN_PHTHALO_BLUE_LIGHT]: 'Phthalo Blå Lys',
+    [TwSprayColor.MTN_TURQUOISE_GREEN]: 'Turkisgrøn',
+    [TwSprayColor.MTN_NEUTRAL_GREY_DEEP]: 'Neutralgrå Dyb',
+    [TwSprayColor.MTN_AZO_ORANGE_DEEP]: 'Azo Orange Dyb',
+    [TwSprayColor.DUPLICOLOR_LIGHT_PINK_SATIN_MATTE]: 'Lys Pink Satin Mat',
+    [TwSprayColor.BLANK]: 'Blanktrukket',
+    [TwSprayColor.MTN_COBALT_BLUE]: 'Koboltblå',
+    [TwSprayColor.MONTANA_PALE_ROSE]: 'Pale Rose',
+    [TwSprayColor.MTN_BLUE_VIOLET_DARK]: 'Blåviolet Mørk',
+    [TwSprayColor.MTN_CADMIUM_YELLOW_MEDIUM]: 'Cadmium Gul',
+    [TwSprayColor.MTN_ULTRAMARINE_BLUE]: 'Ultramarine Blå',
+    [TwSprayColor.MTN_ELDORADO_YELLOW]: 'Eldorado Gul',
+}
+
+export const COLOR_INDEX = Object.values(TwSprayColor).map((hex, i) => ({
+    id: i + 1,
+    hex,
+    name: COLOR_NAMES[hex],
+}))
