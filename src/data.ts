@@ -243,8 +243,9 @@ export const LAMPS = [
     { name: 'Lys Grøn', variant: Variant.naebet_bord, colors: [TwSprayColor.MTN_GREY_GREEN_LIGHT], images: [NAEBET9_BORD_1, NAEBET9_BORD_2, NAEBET9_BORD_3], designer: Designer.arne_jacobsen },
     { name: 'Neutralgrå Lys', variant: Variant.naebet_bord, colors: [TwSprayColor.MTN_NEUTRAL_GREY_LIGHT], images: [NAEBET10_BORD_1, NAEBET10_BORD_2, NAEBET10_BORD_3], designer: Designer.arne_jacobsen },
     // Næbet - væglampe
-    { name: 'Lys Grøn', variant: Variant.naebet_vaeg, colors: [TwSprayColor.MTN_GREY_GREEN_LIGHT], images: [NAEBET9_VAEG_1, NAEBET9_VAEG_2, NAEBET9_VAEG_3, NAEBET9_VAEG_4, NAEBET9_VAEG_5, NAEBET9_VAEG_6], designer: Designer.arne_jacobsen },
-    { name: 'Neutralgrå Lys', variant: Variant.naebet_vaeg, colors: [TwSprayColor.MTN_NEUTRAL_GREY_LIGHT], images: [NAEBET10_VAEG_1, NAEBET10_VAEG_2, NAEBET10_VAEG_3, NAEBET10_VAEG_4, NAEBET10_VAEG_5], designer: Designer.arne_jacobsen },
+    { name: 'Lys Grøn - indbygning i væg', variant: Variant.naebet_vaeg, colors: [TwSprayColor.MTN_GREY_GREEN_LIGHT], images: [NAEBET9_VAEG_1, NAEBET9_VAEG_2, NAEBET9_VAEG_3], designer: Designer.arne_jacobsen },
+    { name: 'Lys Grøn - m. synligt ledningsudtag', variant: Variant.naebet_vaeg, colors: [TwSprayColor.MTN_GREY_GREEN_LIGHT], images: [NAEBET9_VAEG_4, NAEBET9_VAEG_5, NAEBET9_VAEG_6], designer: Designer.arne_jacobsen },
+    { name: 'Neutralgrå Lys - m. synligt ledningsudtag', variant: Variant.naebet_vaeg, colors: [TwSprayColor.MTN_NEUTRAL_GREY_LIGHT], images: [NAEBET10_VAEG_1, NAEBET10_VAEG_2, NAEBET10_VAEG_3, NAEBET10_VAEG_4, NAEBET10_VAEG_5], designer: Designer.arne_jacobsen },
     // Næbet - gulvlampe
     { name: 'Cadmiumgul Lys', variant: Variant.naebet_gulv, colors: [TwSprayColor.MTN_CADMIUN_YELLOW_LIGHT], images: [NAEBET12_GULV_1, NAEBET12_GULV_2, NAEBET12_GULV_3], designer: Designer.arne_jacobsen },
     // Jubilæum
