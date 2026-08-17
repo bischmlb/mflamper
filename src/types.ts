@@ -48,4 +48,7 @@ export enum Variant {
     ph5 = 'PH 5',
     royal = 'AJ Royal 500',
     jubi_ph5 = 'PH 5 Jubilæum',
+    naebet_gulv = 'AJ "Næbet" (gulv)',
+    naebet_vaeg = 'AJ "Næbet" (væg)',
+    naebet_bord = 'AJ "Næbet" (bord)'
 }

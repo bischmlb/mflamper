@@ -62,16 +62,36 @@ import AJ_IMG8_3 from './assets/lamps/8/IMG_3428.jpeg'
 import IMG9_1 from './assets/lamps/9/IMG_4505.webp'
 import IMG9_2 from './assets/lamps/9/IMG_4506.webp'
 import IMG9_3 from './assets/lamps/9/IMG_4508.webp'
+import NAEBET9_BORD_1 from './assets/lamps/9/IMG_6648.jpeg'
+import NAEBET9_BORD_2 from './assets/lamps/9/IMG_6649.jpeg'
+import NAEBET9_BORD_3 from './assets/lamps/9/IMG_6650.jpeg'
+import NAEBET9_VAEG_1 from './assets/lamps/9/IMG_6663.jpeg'
+import NAEBET9_VAEG_2 from './assets/lamps/9/IMG_6664.jpeg'
+import NAEBET9_VAEG_3 from './assets/lamps/9/IMG_6665.jpeg'
+import NAEBET9_VAEG_4 from './assets/lamps/9/IMG_6666.jpeg'
+import NAEBET9_VAEG_5 from './assets/lamps/9/IMG_6667.jpeg'
+import NAEBET9_VAEG_6 from './assets/lamps/9/IMG_6668.jpeg'
 
 // 10
 import IMG10_1 from './assets/lamps/10/IMG_4451.webp'
 import IMG10_2 from './assets/lamps/10/IMG_4452.webp'
 import IMG10_3 from './assets/lamps/10/IMG_4453.webp'
+import NAEBET10_BORD_1 from './assets/lamps/10/IMG_6651.jpeg'
+import NAEBET10_BORD_2 from './assets/lamps/10/IMG_6652.jpeg'
+import NAEBET10_BORD_3 from './assets/lamps/10/IMG_6655.jpeg'
+import NAEBET10_VAEG_1 from './assets/lamps/10/IMG_6656.jpeg'
+import NAEBET10_VAEG_2 from './assets/lamps/10/IMG_6657.jpeg'
+import NAEBET10_VAEG_3 from './assets/lamps/10/IMG_6658.jpeg'
+import NAEBET10_VAEG_4 from './assets/lamps/10/IMG_6659.jpeg'
+import NAEBET10_VAEG_5 from './assets/lamps/10/IMG_6660.jpeg'
 
 // 12
 import IMG12_1 from './assets/lamps/12/IMG_4499.webp'
 import IMG12_2 from './assets/lamps/12/IMG_4500.webp'
 import IMG12_3 from './assets/lamps/12/IMG_4501.webp'
+import NAEBET12_GULV_1 from './assets/lamps/12/IMG_6681.jpeg'
+import NAEBET12_GULV_2 from './assets/lamps/12/IMG_6682.jpeg'
+import NAEBET12_GULV_3 from './assets/lamps/12/IMG_6683.jpeg'
 
 // 13
 import IMG13_1 from './assets/lamps/13/IMG_4457.webp'
@@ -147,6 +167,11 @@ import JUBI_GRAA_GROEN_ROED_2 from './assets/lamps/jubi/graa-groen-roed/IMG_4518
 // jubi - graa-sort-roed
 import JUBI_GRAA_SORT_ROED_1 from './assets/lamps/jubi/graa-sort-roed/IMG_4523.webp'
 
+// jubi - lys-blaa
+import JUBI_LYS_BLAA_1 from './assets/lamps/jubi/lys-blaa/IMG_6644.jpeg'
+import JUBI_LYS_BLAA_2 from './assets/lamps/jubi/lys-blaa/IMG_6645.jpeg'
+import JUBI_LYS_BLAA_3 from './assets/lamps/jubi/lys-blaa/IMG_6647.jpeg'
+
 
 export const LAMPS = [
     { name: 'Mat Hvid', variant: Variant.ph5, colors: [TwSprayColor.MATTE_WHITE], images: [IMG1_1, IMG1_2, IMG1_3, IMG1_4, IMG1_5, IMG1_6], designer: Designer.ph },
@@ -178,11 +203,20 @@ export const LAMPS = [
     { name: 'Grågrøn', variant: Variant.royal, colors: [TwSprayColor.MTN_GREY_GREEN], images: [AJ_IMG2_1, AJ_IMG2_2, AJ_IMG2_3], designer: Designer.arne_jacobsen },
     { name: 'Mat Sort', variant: Variant.royal, colors: [TwSprayColor.MTN_MATTE_BLACK], images: [AJ_IMG8_1, AJ_IMG8_2, AJ_IMG8_3], designer: Designer.arne_jacobsen },
     { name: 'Azo Orange Dyb', variant: Variant.royal, colors: [TwSprayColor.MTN_AZO_ORANGE_DEEP], images: [AJ_IMG16_1, AJ_IMG16_2], designer: Designer.arne_jacobsen },
+    // Næbet - bordlampe
+    { name: 'Lys Grøn', variant: Variant.naebet_bord, colors: [TwSprayColor.MTN_GREY_GREEN_LIGHT], images: [NAEBET9_BORD_1, NAEBET9_BORD_2, NAEBET9_BORD_3], designer: Designer.arne_jacobsen },
+    { name: 'Neutralgrå Lys', variant: Variant.naebet_bord, colors: [TwSprayColor.MTN_NEUTRAL_GREY_LIGHT], images: [NAEBET10_BORD_1, NAEBET10_BORD_2, NAEBET10_BORD_3], designer: Designer.arne_jacobsen },
+    // Næbet - væglampe
+    { name: 'Lys Grøn', variant: Variant.naebet_vaeg, colors: [TwSprayColor.MTN_GREY_GREEN_LIGHT], images: [NAEBET9_VAEG_1, NAEBET9_VAEG_2, NAEBET9_VAEG_3, NAEBET9_VAEG_4, NAEBET9_VAEG_5, NAEBET9_VAEG_6], designer: Designer.arne_jacobsen },
+    { name: 'Neutralgrå Lys', variant: Variant.naebet_vaeg, colors: [TwSprayColor.MTN_NEUTRAL_GREY_LIGHT], images: [NAEBET10_VAEG_1, NAEBET10_VAEG_2, NAEBET10_VAEG_3, NAEBET10_VAEG_4, NAEBET10_VAEG_5], designer: Designer.arne_jacobsen },
+    // Næbet - gulvlampe
+    { name: 'Cadmiumgul Lys', variant: Variant.naebet_gulv, colors: [TwSprayColor.MTN_CADMIUN_YELLOW_LIGHT], images: [NAEBET12_GULV_1, NAEBET12_GULV_2, NAEBET12_GULV_3], designer: Designer.arne_jacobsen },
     // Jubilæum
     { name: 'Rød', variant: Variant.jubi_ph5, colors: [], images: [JUBI_ROED_1, JUBI_ROED_2], designer: Designer.ph },
     { name: 'Hvid', variant: Variant.jubi_ph5, colors: [], images: [JUBI_HVID_1, JUBI_HVID_2], designer: Designer.ph },
     { name: 'Wasabi', variant: Variant.jubi_ph5, colors: [], images: [JUBI_GROEN_1, JUBI_GROEN_2, JUBI_GRAA_GROEN_ROED_1, JUBI_GRAA_GROEN_ROED_2], designer: Designer.ph },
     { name: 'Sort', variant: Variant.jubi_ph5, colors: [], images: [JUBI_SORT_1, JUBI_SORT_2], designer: Designer.ph },
+    { name: 'Lys Blå', variant: Variant.jubi_ph5, colors: [], images: [JUBI_LYS_BLAA_1, JUBI_LYS_BLAA_2, JUBI_LYS_BLAA_3], designer: Designer.ph },
 ] as const;
 
 

@@ -24,6 +24,9 @@ const wasabiIndex = LAMPS.findIndex(
     (l) => l.variant === Variant.jubi_ph5 && l.name === "Wasabi",
 );
 const wasabi = LAMPS[wasabiIndex];
+
+const naebetIndex = LAMPS.findIndex((l) => l.variant === Variant.naebet_vaeg);
+const naebet = LAMPS[naebetIndex];
 ---
 
 <Layout title="Morfar's Lamper">
@@ -76,8 +79,8 @@ const wasabi = LAMPS[wasabiIndex];
 
         {/* Featured card */}
 
-        <!-- <div class="hidden md:block">
-            <div class="hidden md:flex items-center gap-4 mb-8">
+        <div class="hidden md:block">
+            <div class="flex items-center gap-4 mb-8">
                 <span
                     class="text-brass text-xs font-medium uppercase tracking-[0.25em]"
                     >Udvalgt</span
@@ -86,16 +89,16 @@ const wasabi = LAMPS[wasabiIndex];
             </div>
             <div class="mb-16">
                 <ProductCard
-                    image={wasabi.images[0]!}
-                    title={wasabi.name}
-                    href={`/lamps/${wasabiIndex}`}
-                    subtitle={wasabi.variant}
-                    description="En sjælden jubilæumsudgave af PH 5 i den karakteristiske wasabi-grønne farve — restaureret og klar til et nyt hjem."
-                    designer={wasabi.designer}
+                    image={naebet.images[0]!}
+                    title={naebet.name}
+                    href={`/lamps/${naebetIndex}`}
+                    subtitle={naebet.variant}
+                    description="En klassisk AJ Næbet gulvlampe, omhyggeligt restaureret og nylakeret — klar til at sætte stemning i dit hjem."
+                    designer={naebet.designer}
                     variant="featured"
                 />
             </div>
-        </div> -->
+        </div>
 
         <div class="flex items-center gap-4 mb-8">
             <span
